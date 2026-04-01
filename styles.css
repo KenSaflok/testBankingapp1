@@ -1,0 +1,366 @@
+:root {
+    --bg: #f3f6fb;
+    --panel: #ffffff;
+    --text: #172033;
+    --muted: #60708c;
+    --border: #dbe3ef;
+    --primary: #165dff;
+    --primary-dark: #1145bf;
+    --success: #1ea971;
+    --danger: #d64545;
+    --warning: #e47d1c;
+    --cyan: #0ea5c6;
+    --shadow: 0 18px 45px rgba(19, 38, 77, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background: linear-gradient(180deg, #eaf1ff 0%, var(--bg) 30%, #eef3fa 100%);
+    color: var(--text);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.app-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+}
+
+.hero,
+.transfer-panel,
+.activity-panel,
+.account-card,
+.summary-card {
+    background: var(--panel);
+    border: 1px solid rgba(219, 227, 239, 0.8);
+    box-shadow: var(--shadow);
+}
+
+.hero {
+    border-radius: 28px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.eyebrow,
+.section-label,
+.account-label {
+    margin: 0 0 6px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
+.hero h1,
+.transfer-panel h3,
+.activity-panel h3,
+.account-header h3 {
+    margin: 0;
+}
+
+.subtitle {
+    margin: 10px 0 0;
+    color: var(--muted);
+    max-width: 620px;
+}
+
+.hero-actions,
+.button-row,
+.transfer-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.summary-grid,
+.accounts-grid {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.accounts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.summary-card,
+.account-card {
+    border-radius: 24px;
+    padding: 24px;
+}
+
+.summary-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.summary-card h2 {
+    margin: 12px 0 0;
+    font-size: clamp(1.8rem, 2vw, 2.5rem);
+}
+
+.highlight-blue {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #fff;
+}
+
+.highlight-blue p,
+.highlight-blue h2 {
+    color: #fff;
+}
+
+.highlight-cyan {
+    border-top: 5px solid var(--cyan);
+}
+
+.highlight-green {
+    border-top: 5px solid var(--success);
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.account-number {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.account-balance {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 28px 0 20px;
+}
+
+.form-row input,
+.transfer-controls input,
+.transfer-controls select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: #fbfdff;
+}
+
+.transfer-panel,
+.activity-panel {
+    border-radius: 28px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.transfer-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 18px;
+}
+
+.transfer-controls {
+    align-items: end;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.transfer-controls label {
+    min-width: 160px;
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.status-message {
+    min-height: 22px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f6f8fc;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eef2f7;
+    text-align: left;
+}
+
+th {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.amount-cell,
+.amount-value {
+    text-align: right;
+}
+
+.amount-positive {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.amount-negative {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.badge.deposit {
+    background: rgba(30, 169, 113, 0.12);
+    color: var(--success);
+}
+
+.badge.withdraw {
+    background: rgba(214, 69, 69, 0.12);
+    color: var(--danger);
+}
+
+.badge.transfer {
+    background: rgba(22, 93, 255, 0.12);
+    color: var(--primary);
+}
+
+.primary-btn,
+.secondary-btn,
+.danger-btn,
+.success-btn,
+.warning-btn {
+    border: 0;
+    border-radius: 14px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.danger-btn:hover,
+.success-btn:hover,
+.warning-btn:hover {
+    transform: translateY(-1px);
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+}
+
+.secondary-btn {
+    background: #edf3ff;
+    color: var(--primary);
+}
+
+.danger-btn {
+    background: #fff1f1;
+    color: var(--danger);
+}
+
+.success-btn {
+    background: var(--success);
+    color: #fff;
+    flex: 1;
+}
+
+.warning-btn {
+    background: var(--warning);
+    color: #fff;
+    flex: 1;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 32px 16px;
+}
+
+@media (max-width: 900px) {
+    .summary-grid,
+    .accounts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero,
+    .transfer-panel,
+    .panel-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .transfer-controls {
+        justify-content: stretch;
+    }
+
+    .transfer-controls label,
+    .transfer-controls button {
+        width: 100%;
+    }
+}

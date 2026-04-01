@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Banking Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Secure Banking Demo</p>
+                <h1>Personal Banking Portal</h1>
+                <p class="subtitle">Manage checking and savings balances with persistent browser storage.</p>
+            </div>
+            <div class="hero-actions">
+                <button id="seedDemoBtn" class="secondary-btn">Load Demo Data</button>
+                <button id="resetBtn" class="danger-btn">Reset</button>
+            </div>
+        </header>
+
+        <section class="summary-grid" aria-label="account summary">
+            <article class="summary-card highlight-blue">
+                <p>Total Balance</p>
+                <h2 id="totalBalance">$0.00</h2>
+            </article>
+            <article class="summary-card highlight-cyan">
+                <p>Checking</p>
+                <h2 id="checkingBalance">$0.00</h2>
+            </article>
+            <article class="summary-card highlight-green">
+                <p>Savings</p>
+                <h2 id="savingsBalance">$0.00</h2>
+            </article>
+        </section>
+
+        <section class="accounts-grid">
+            <article class="account-card">
+                <div class="account-header">
+                    <div>
+                        <p class="account-label">Checking Account</p>
+                        <h3>Everyday Spending</h3>
+                    </div>
+                    <span class="account-number">...8821</span>
+                </div>
+                <p class="account-balance" id="checkingCardBalance">$0.00</p>
+                <div class="form-row">
+                    <label class="sr-only" for="checkingAmount">Checking amount</label>
+                    <input id="checkingAmount" type="number" min="0" step="0.01" placeholder="Enter amount">
+                </div>
+                <div class="button-row">
+                    <button class="success-btn" data-account="checking" data-action="deposit">Deposit</button>
+                    <button class="warning-btn" data-account="checking" data-action="withdraw">Withdraw</button>
+                </div>
+            </article>
+
+            <article class="account-card">
+                <div class="account-header">
+                    <div>
+                        <p class="account-label">Savings Account</p>
+                        <h3>Future Goals</h3>
+                    </div>
+                    <span class="account-number">...4490</span>
+                </div>
+                <p class="account-balance" id="savingsCardBalance">$0.00</p>
+                <div class="form-row">
+                    <label class="sr-only" for="savingsAmount">Savings amount</label>
+                    <input id="savingsAmount" type="number" min="0" step="0.01" placeholder="Enter amount">
+                </div>
+                <div class="button-row">
+                    <button class="success-btn" data-account="savings" data-action="deposit">Deposit</button>
+                    <button class="warning-btn" data-account="savings" data-action="withdraw">Withdraw</button>
+                </div>
+            </article>
+        </section>
+
+        <section class="transfer-panel">
+            <div>
+                <p class="section-label">Internal Transfer</p>
+                <h3>Move funds between accounts</h3>
+            </div>
+            <div class="transfer-controls">
+                <label>
+                    <span>From</span>
+                    <select id="fromAccount">
+                        <option value="checking">Checking</option>
+                        <option value="savings">Savings</option>
+                    </select>
+                </label>
+                <label>
+                    <span>To</span>
+                    <select id="toAccount">
+                        <option value="savings">Savings</option>
+                        <option value="checking">Checking</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Amount</span>
+                    <input id="transferAmount" type="number" min="0" step="0.01" placeholder="0.00">
+                </label>
+                <button id="transferBtn" class="primary-btn">Transfer</button>
+            </div>
+        </section>
+
+        <section class="activity-panel">
+            <div class="panel-header">
+                <div>
+                    <p class="section-label">Recent Activity</p>
+                    <h3>Latest transactions</h3>
+                </div>
+                <p id="statusMessage" class="status-message" aria-live="polite"></p>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Account</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th class="amount-cell">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
